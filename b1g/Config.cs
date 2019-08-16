@@ -10,7 +10,7 @@ namespace b1g
         public static ulong logsMod = 605578861589168128;
         public static ulong logsChannel = 605578604084199424;
         public static ulong mutedRol = 610612957780508682;
-        public static ulong messageRoles = 606647322918649858;
+        public static ulong messageRoles = 612044546905341952;
         public static ulong reactionRole1 = 606870272464650260;
         public static ulong reactionRole2 = 606276717748813840;
         public static ulong reactionRole3 = 606276734899453963;
