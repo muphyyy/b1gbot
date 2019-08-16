@@ -16,7 +16,7 @@ namespace b1g
         public static ulong reactionRole3 = 606276734899453963;
         public static ulong reactionRole4 = 606276516061511681;
         public static ulong reactionRole5 = 606276691828146178;
-        public static ulong exceptionLogChannel = 605578604084199424;
+        public static ulong exceptionLogChannel = 612046755193946158;
         public static ulong levelRole1 = 610290169278365736;
         public static ulong levelRole2 = 610290206733500455;
         public static ulong levelRole3 = 610290215495532560;
