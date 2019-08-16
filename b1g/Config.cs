@@ -6,20 +6,20 @@ namespace b1g
 {
     public class Config
     {
-        public static ulong mainGuild = 610577892472258590;
-        public static ulong logsMod = 610612560596566017;
-        public static ulong logsChannel = 610612577726365699;
-        public static ulong mutedRol = 610618680874762240;
-        public static ulong messageRoles = 610864513209729035;
-        public static ulong reactionRole1 = 610955029645361152;
-        public static ulong reactionRole2 = 610959511414505479;
-        public static ulong reactionRole3 = 610959551138627607;
-        public static ulong reactionRole4 = 610959584227491841;
-        public static ulong reactionRole5 = 610959603001327620;
-        public static ulong exceptionLogChannel = 610959996829696000;
-        public static ulong levelRole1 = 611259991113990146;
-        public static ulong levelRole2 = 611260020377649311;
-        public static ulong levelRole3 = 611260034021588993;
-        public static ulong levelRole4 = 611260044272730112;
+        public static ulong mainGuild = 605577169334304791;
+        public static ulong logsMod = 605578861589168128;
+        public static ulong logsChannel = 605578604084199424;
+        public static ulong mutedRol = 610612957780508682;
+        public static ulong messageRoles = 606647322918649858;
+        public static ulong reactionRole1 = 606870272464650260;
+        public static ulong reactionRole2 = 606276717748813840;
+        public static ulong reactionRole3 = 606276734899453963;
+        public static ulong reactionRole4 = 606276516061511681;
+        public static ulong reactionRole5 = 606276691828146178;
+        public static ulong exceptionLogChannel = 605578604084199424;
+        public static ulong levelRole1 = 610290169278365736;
+        public static ulong levelRole2 = 610290206733500455;
+        public static ulong levelRole3 = 610290215495532560;
+        public static ulong levelRole4 = 610290237435805726;
     }
 }
