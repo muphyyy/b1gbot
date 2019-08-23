@@ -20,65 +20,103 @@ namespace b1g.Modules
         [Command("musica")]
         public async Task Join()
         {
-            var user = Context.User as SocketGuildUser;
-            if (user.VoiceChannel is null)
+            if (Context.Channel.Id == (ulong)609542348287770624)
             {
-                await ReplyAsync("⚠️ Necesitas estar conectado a un canal de voz.");
-                return;
+                var user = Context.User as SocketGuildUser;
+                if (user.VoiceChannel is null)
+                {
+                    await ReplyAsync("⚠️ Necesitas estar conectado a un canal de voz.");
+                    return;
+                }
+                else
+                {
+                    await _musicService.ConnectAsync(user.VoiceChannel, Context.Channel as ITextChannel);
+                    await ReplyAsync($"🔔 b1g se ha conectado a {user.VoiceChannel.Name}");
+                }
             }
-            else
-            {
-                await _musicService.ConnectAsync(user.VoiceChannel, Context.Channel as ITextChannel);
-                await ReplyAsync($"🔔 b1g se ha conectado a {user.VoiceChannel.Name}");
-            }
+            else await ReplyAsync("⚠️ Dirígete a #comandos-bot para usar mis comandos.");
         }
 
         [Command("salir")]
         public async Task Leave()
         {
-            var user = Context.User as SocketGuildUser;
-            if (user.VoiceChannel is null)
+            if (Context.Channel.Id == (ulong)609542348287770624)
             {
-                await ReplyAsync("⚠️ Únete al canal donde está el bot para que salga del canal");
+                var user = Context.User as SocketGuildUser;
+                if (user.VoiceChannel is null)
+                {
+                    await ReplyAsync("⚠️ Únete al canal donde está el bot para que salga del canal");
+                }
+                else
+                {
+                    await _musicService.LeaveAsync(user.VoiceChannel);
+                    await ReplyAsync($"🔔 b1g ha dejado {user.VoiceChannel.Name}");
+                }
             }
-            else
-            {
-                await _musicService.LeaveAsync(user.VoiceChannel);
-                await ReplyAsync($"🔔 b1g ha dejado {user.VoiceChannel.Name}");
-            }
+            else await ReplyAsync("⚠️ Dirígete a #comandos-bot para usar mis comandos.");
         }
 
         [Command("play")]
         public async Task Play([Remainder]string query)
         {
-            var result = await _musicService.PlayAsync(query, Context.Guild.Id);
-            await ReplyAsync(result);
+            if (Context.Channel.Id == (ulong)609542348287770624)
+            {
+                var result = await _musicService.PlayAsync(query, Context.Guild.Id);
+                await ReplyAsync(result);
+            }
+            else await ReplyAsync("⚠️ Dirígete a #comandos-bot para usar mis comandos.");
         }
 
         [Command("parar")]
         public async Task Stop()
         {
-            await _musicService.StopAsync();
-            await ReplyAsync("🔔");
+            if (Context.Channel.Id == (ulong)609542348287770624)
+            {
+                await _musicService.StopAsync();
+                await ReplyAsync("🔔");
+            }
+            else await ReplyAsync("⚠️ Dirígete a #comandos-bot para usar mis comandos.");
         }
 
         [Command("pasar")]
         public async Task Skip()
         {
-            var result = await _musicService.SkipAsync();
-            await ReplyAsync(result);
+            if (Context.Channel.Id == (ulong)609542348287770624)
+            {
+                var result = await _musicService.SkipAsync();
+                await ReplyAsync(result);
+            }
+            else await ReplyAsync("⚠️ Dirígete a #comandos-bot para usar mis comandos.");
         }
 
         [Command("volumen")]
         public async Task Volume(int vol)
-            => await ReplyAsync(await _musicService.SetVolumeAsync(vol));
+        {
+            if (Context.Channel.Id == (ulong)609542348287770624)
+            {
+                await ReplyAsync(await _musicService.SetVolumeAsync(vol));
+            }
+            else await ReplyAsync("⚠️ Dirígete a #comandos-bot para usar mis comandos.");
+        }
 
         [Command("pausar")]
         public async Task Pause()
-            => await ReplyAsync(await _musicService.PauseOrResumeAsync());
+        {
+            if (Context.Channel.Id == (ulong)609542348287770624)
+            {
+                await ReplyAsync(await _musicService.PauseOrResumeAsync());
+            }
+            else await ReplyAsync("⚠️ Dirígete a #comandos-bot para usar mis comandos.");
+        }
 
         [Command("despausar")]
         public async Task Resume()
-            => await ReplyAsync(await _musicService.ResumeAsync());
+        {
+            if (Context.Channel.Id == (ulong)609542348287770624)
+            {
+                await ReplyAsync(await _musicService.ResumeAsync());
+            }
+            else await ReplyAsync("⚠️ Dirígete a #comandos-bot para usar mis comandos.");
+        }
     }
 }

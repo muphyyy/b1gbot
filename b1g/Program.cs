@@ -72,7 +72,7 @@ namespace b1g
                 int messages = message + 1;
                 await Database.DbHandler.UpdateDbUserLevel(arg.Author.Id.ToString(), message);
 
-                if(messages == 2)
+                if(messages == 200)
                 {
                     var guild = _client.GetGuild(Config.mainGuild);
                     var role = guild.GetRole(Config.levelRole1);
@@ -81,7 +81,7 @@ namespace b1g
                     await arg.Author.SendMessageAsync("🔔 ¡Felicidades! Has obtenido el rol 'fdsdsf' por tu actividad en el Discord de ODCode.");
                 }
 
-                if (messages == 4)
+                if (messages == 1000)
                 {
                     var guild = _client.GetGuild(Config.mainGuild);
                     var role = guild.GetRole(Config.levelRole2);
@@ -93,7 +93,7 @@ namespace b1g
                     await arg.Author.SendMessageAsync("🔔 ¡Felicidades! Has obtenido el rol 'fdsdsf' por tu actividad en el Discord de ODCode.");
                 }
 
-                if (messages == 6)
+                if (messages == 3000)
                 {
                     var guild = _client.GetGuild(Config.mainGuild);
                     var role = guild.GetRole(Config.levelRole3);
@@ -105,7 +105,7 @@ namespace b1g
                     await arg.Author.SendMessageAsync("🔔 ¡Felicidades! Has obtenido el rol 'fdsdsf' por tu actividad en el Discord de ODCode.");
                 }
 
-                if (messages == 8)
+                if (messages == 7000)
                 {
                     var guild = _client.GetGuild(Config.mainGuild);
                     var role = guild.GetRole(Config.levelRole4);

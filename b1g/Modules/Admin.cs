@@ -173,5 +173,52 @@ namespace b1g.Modules
             await message.DeleteAsync();
         }
 
+        [Command("resetxp")]
+        [RequireContext(ContextType.Guild)]
+        [RequireUserPermission(GuildPermission.KickMembers)]
+        [RequireBotPermission(GuildPermission.KickMembers)]
+        public async Task ResetXp(SocketGuildUser target, [Remainder] string mensaje)
+        {
+            var guild = target.Guild;
+            SocketUser user = Context.User;
+            await Database.DbHandler.UpdateDbUserLevel(target.Id.ToString(), 0);
+
+            await target.SendMessageAsync($"⚠️ {user.Username.ToString()} te ha reseteado el XP a 0. | Razón: {mensaje}");
+            await ReplyAsync($"👺 {user.Username.ToString()} ha resetado el XP de {target.Username.ToString()} | Razón: {mensaje}");
+
+            var chnl = guild.GetChannel(Config.logsMod) as IMessageChannel;
+            await chnl.SendMessageAsync($"⚠️ {user.Username.ToString()} ha reseteado el XP de {target.Username.ToString()}. Razón: {mensaje} || `{DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")}`");
+        }
+
+        [Command("bigaso")]
+        [RequireContext(ContextType.Guild)]
+        [RequireUserPermission(GuildPermission.KickMembers)]
+        [RequireBotPermission(GuildPermission.KickMembers)]
+        public async Task bigasote(SocketGuildUser target, [Remainder] string reason = null)
+        {
+            var role = Context.Guild.GetRole(Config.levelRole4);
+            await ((SocketGuildUser)target).AddRoleAsync(role);
+        }
+
+        [Command("pleb")]
+        [RequireContext(ContextType.Guild)]
+        [RequireUserPermission(GuildPermission.KickMembers)]
+        [RequireBotPermission(GuildPermission.KickMembers)]
+        public async Task pleb(SocketGuildUser target, [Remainder] string reason = null)
+        {
+            var role = Context.Guild.GetRole(Config.levelRole1);
+            await ((SocketGuildUser)target).AddRoleAsync(role);
+        }
+
+        [Command("nomorbig")]
+        [RequireContext(ContextType.Guild)]
+        [RequireUserPermission(GuildPermission.KickMembers)]
+        [RequireBotPermission(GuildPermission.KickMembers)]
+        public async Task nomorbig(SocketGuildUser target, [Remainder] string reason = null)
+        {
+            var role = Context.Guild.GetRole(Config.levelRole4);
+            await ((SocketGuildUser)target).RemoveRoleAsync(role);
+        }
+
     }
 }
